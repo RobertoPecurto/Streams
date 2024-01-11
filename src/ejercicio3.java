@@ -1,6 +1,5 @@
 import java.util.ArrayList;
-
-public class ejercicio1 {
+public class ejercicio3 {
     public static void main(String[] args) {
         ArrayList<Person> personas = new ArrayList<>();
         Person persona = new Person("Pepe", "García", 1968);
@@ -9,9 +8,11 @@ public class ejercicio1 {
         personas.add(persona);
         persona = new Person("Juan", "Martínez", 1968);
         personas.add(persona);
-        long count = personas.stream()
-                .filter(p -> p.getBirthYear() < 1970)
-                .count();
-        System.out.println("Count: " + count);
+
+        personas.stream()
+                .map(Person::getFirstName)
+                .distinct()
+                .sorted()
+                .forEach(System.out::println);
     }
 }
